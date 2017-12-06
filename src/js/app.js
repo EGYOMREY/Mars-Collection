@@ -1,136 +1,159 @@
-var ourRequest = new XMLHttpRequest();
-var rovers = ['opportunity', 'curiosity', 'spirit'];
-var photosContainer = document.querySelector('.photosContainer');
-var noElementsAvailable = document.querySelector('#noElementsAvailable');
-var randomButton = document.querySelector('#randomButton');
-var searchButton = document.querySelector('#searchButton');
-var slider = document.querySelector('#myRange');
-var demo = document.querySelector('#demo');
-var widthText = document.querySelector('#widthText');
-var heightText = document.querySelector('#heightText');
-var heightV = document.querySelector('#heightV');
-var widthV = document.querySelector('#widthV');
+$(document).ready(() => {
+    'use strict';
 
-var picturesToDisplay = 10;
-widthValue = 300;
-heightValue = 300;
+    // --               VARIABLES USED              -- //
+    var frag = document.createDocumentFragment();
+    // -- Set a dummy element for position 0 -- //
+    var rovers = ['dummy', 'opportunity', 'curiosity', 'spirit'];
 
+    // -- Container for displaying the pictures -- //
+    var photosContainer = $('.photosContainer');
 
-demo.innerHTML = slider.value;
-widthText.innerHTML = widthV.value;
-heightText.innerHTML = heightV.value;
+    // -- Button to search for the pictures -- //
+    var randomButton = $('#randomButton');
+    var searchButton = $('#searchButton');
 
-slider.oninput = function() {
-    demo.innerHTML = this.value;
-    picturesToDisplay = this.value;
-    picturesToDisplay*=2;
-}
+    // --       RANGE INPUT (User choice)        -- //
+    // -- Range input for # of Pictures to display -- //
+    var rangeImagesToDisplay = $('#rangeImagesToDisplay');
+    // -- Range input to Select HEIGHT of the pictures -- //
+    var rangeHeightImage = $('#rangeHeightImage');
+    // -- Range input to Select WIDTH of the pictures -- //
+    var rangeWidthImage = $('#rangeWidthImage');
 
-widthV.oninput = function() {
-    widthText.innerHTML = this.value;
-    widthValue = this.value;
+    // --     RANGE VALUE DISPLAY for HTML     -- //
+    var imagesToDisplayText = $('#imagesToDisplayText');
+    var widthImageText = $('#widthImageText');
+    var heightImageText = $('#heightImageText');
 
-}
-
-heightV.oninput = function() {
-    heightText.innerHTML = this.value;
-    heightValue = this.value;
-
-}
+    // --     Rover Buttons     -- //
+    var spiritButton = $('#spirit');
+    var curiosityButton = $('#curiosity');
+    var opportunityButton = $('#opportunity');
+    // -- Default value -- //
+    var chosenRover = 'curiosity';
 
 
+    // --     DEFAULT VALUES FOR DEFAULT SEARCH     -- //
+    var picturesToDisplay = 10;
+    // -- Picture width -- //
+    var widthValue = 300;
+    // -- Picture height -- //
+    var heightValue = 300;
 
 
-var spiritButton = document.querySelector('#spirit');
-var curiosityButton = document.querySelector('#curiosity');
-var opportunityButton = document.querySelector('#opportunity');
-var chosenRover = 'curiosity';
+    // -- Stores a random rover-- //
+    var randomRover;
+    // -- Stores the Martian day parameter (Sol) for the url -- //
+    var solParameter;
+    // -- Stores the URL value -- //
+    var url;
 
-
-function addRover(e) {
-    var buttonTouched = e.target;
-
-
-    var targetButton = e.target.id;
-
-    if (spiritButton.classList.contains('btn-pressed')) {
-        spiritButton.classList.remove('btn-pressed');
-    } else if (curiosityButton.classList.contains('btn-pressed')) {
-        curiosityButton.classList.remove('btn-pressed');
-    } else if (opportunityButton.classList.contains('btn-pressed')) {
-        opportunityButton.classList.remove('btn-pressed');
+    // -- Generic randomize function-- //
+    function randomize(min, max) {
+        return Math.floor(Math.random() * (max - min + 1) + min);
     }
 
-    buttonTouched.classList.toggle('btn-pressed');
 
-    chosenRover = e.target.id;
-
-}
-
-
-
-// Function to randomize
-function randomize(min, max) {
-    return Math.floor(Math.random() * (max - min + 1) + min);
-}
-var randomRover;
-var solParameter;
-var url;
-var ourData;
-
-searchButton.addEventListener('click', function() {
-    
-    randomRover = Math.floor(Math.random() * 3) + 0;
-    console.log(chosenRover);
-    solParameter = randomize(1000, 2000);
-    url = 'https://api.nasa.gov/mars-photos/api/v1/rovers/' + chosenRover + '/photos?sol=' + solParameter + '&page=1&api_key=LQlfelUbO5f0rqk5UAS9REF5XhtwkG6oFX5TWOsc';
-    console.log(url);
-
-    ourRequest.open('GET', url);
-    ourRequest.onload = function() {
-
-        photosContainer.innerHTML = '';
-        noElementsAvailable.innerHTML = '';
-        ourData = JSON.parse(ourRequest.responseText);
-        renderHTML(ourData);
-    };
-    ourRequest.send();
-});
+    // --     DEFAULT VALUES displayed in the HTML     -- //
+    imagesToDisplayText.html(picturesToDisplay);
+    widthImageText.html(widthValue);
+    heightImageText.html(heightValue);
 
 
-randomButton.addEventListener('click', function() {
 
-    randomRover = Math.floor(Math.random() * 3) + 0;
-    console.log(rovers[randomRover]);
-    solParameter = randomize(1000, 2000);
-    url = 'https://api.nasa.gov/mars-photos/api/v1/rovers/' + chosenRover + '/photos?sol=' + solParameter + '&page=1&api_key=LQlfelUbO5f0rqk5UAS9REF5XhtwkG6oFX5TWOsc';
+    // --     EVENTS TO COLLECT USER INPUT ON RANGES     -- //
+    rangeImagesToDisplay.on('input', function() {
+        imagesToDisplayText.html($(this).val());
+        picturesToDisplay = $(this).val();
+        // I multiplied the user choice by 2 because the results always bring duplicates
+        picturesToDisplay *= 2;
+    });
 
-    ourRequest.open('GET', url);
-    ourRequest.onload = function() {
-
-        photosContainer.innerHTML = '';
-        noElementsAvailable.innerHTML = '';
-        ourData = JSON.parse(ourRequest.responseText);
-        renderHTML(ourData);
-    };
-    ourRequest.send();
-});
+    rangeWidthImage.on('input', function() {
+        widthImageText.html($(this).val());
+        widthValue = $(this).val();
+    });
 
 
-function renderHTML(data) {
-    if (ourData.photos.length) {
+    rangeHeightImage.on('input', function() {
+        heightImageText.html($(this).val());
+        heightValue = $(this).val();
+    });
 
-        for (var i = 0; i < picturesToDisplay; i += 2) {
-            var img = document.createElement("img");
-            img.width = widthValue;
-            img.height = heightValue;
-            img.src = ourData.photos[i].img_src;
-            img.style.margin = "1em 0";
-            photosContainer.appendChild(img);
+
+    // --     FUNCTION TO SELECT ROVER (User choice)     -- //
+
+    $('.roverButton').click(function() {
+        chosenRover = $(this)[0].id;
+
+        if (spiritButton.hasClass('btn-pressed')) {
+            spiritButton.removeClass('btn-pressed');
+        } else if (curiosityButton.hasClass('btn-pressed')) {
+            curiosityButton.removeClass('btn-pressed');
+        } else if (opportunityButton.hasClass('btn-pressed')) {
+            opportunityButton.removeClass('btn-pressed');
         }
 
-    } else {
-        photosContainer.innerHTML = "No pictures on day " + solParameter + ", please hit the botton again!";
-    }
-}
+        $(this).toggleClass('btn-pressed');
 
+    });
+
+
+    // --     FUNCTION TO TRIGGER DEFAULT SEARCH     -- //
+    searchButton.on('click', function() {
+        solParameter = randomize(1000, 2000);
+        url = 'https://api.nasa.gov/mars-photos/api/v1/rovers/' + chosenRover + '/photos?sol=' + solParameter + '&page=1&api_key=LQlfelUbO5f0rqk5UAS9REF5XhtwkG6oFX5TWOsc';
+
+        ajaxCall(url, widthValue, heightValue, picturesToDisplay, chosenRover, solParameter);
+
+    });
+
+
+    // --     FUNCTION TO TRIGGER RANDOM SEARCH     -- //
+    randomButton.on('click', function() {
+
+        //  (1) we choose a random rover from the array
+        randomRover = Math.floor(Math.random() * 3) + 1;
+        chosenRover = rovers[randomRover];
+
+        solParameter = randomize(1000, 2000);
+        url = 'https://api.nasa.gov/mars-photos/api/v1/rovers/' + chosenRover + '/photos?sol=' + solParameter + '&page=1&api_key=LQlfelUbO5f0rqk5UAS9REF5XhtwkG6oFX5TWOsc';
+
+        ajaxCall(url, widthValue, heightValue, picturesToDisplay, chosenRover, solParameter);
+    });
+
+
+
+
+    // --     CALL TO THE API TO RETRIEVE JSON DATA     -- //
+    function ajaxCall(url, widthValue, heightValue, picturesToDisplay, chosenRover, solParameter) {
+        $.getJSON(url, {
+                format: "json"
+            })
+            .done(data => {
+                photosContainer.html('');
+                if (data.photos.length) {
+
+                    for (let i = 0; i < picturesToDisplay; i += 2) {
+                        const img = document.createElement("img");
+                        img.width = widthValue;
+                        img.height = heightValue;
+                        img.src = data.photos[i].img_src;
+                        img.style.margin = "1em 0";
+                        frag.appendChild(img);
+
+                    }
+                    photosContainer.append(frag);
+                } else {
+                    photosContainer.html(`No pictures on day ${solParameter}, please hit the botton again!`);
+                }
+            })
+            .fail(function() {
+                console.log("error");
+            })
+            .always(function() {
+                console.log(`Rover ${chosenRover}. Martial Day ${solParameter} chosen`);
+            });
+    }
+});

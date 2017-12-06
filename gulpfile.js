@@ -1,6 +1,7 @@
 var gulp = require('gulp'),
     sass = require('gulp-sass'),
     browserSync = require('browser-sync'),
+    babel = require('gulp-babel'),
     uglify = require('gulp-uglify'),
     concatify = require('gulp-concat'),
     sourcemaps = require('gulp-sourcemaps'),
@@ -60,8 +61,9 @@ gulp.task('images', function() {
 
 // Concats & minifies js files and outputs them to build/js/app.js 
 gulp.task('scripts', function() {
-    return gulp.src('src/js/*.js')
+    return gulp.src('src/js/app.js')
         .pipe(sourcemaps.init())
+            .pipe(babel())
             .pipe(uglify())
             .pipe(concatify('app.js'))
         .pipe(sourcemaps.write())

@@ -34,30 +34,30 @@
 
           <h4>Choose the Rover</h4>
           <div class="btn-container">
-            <button id="curiosity" class="btn btn--pink btn-pressed" onclick="addRover(event)">Curiosity</button>
-            <button id="spirit" class="btn btn--pink " onclick="addRover(event)">Spirit</button>
-            <button id="opportunity" class="btn btn--pink" onclick="addRover(event)">Opportunity</button>
+            <button id="curiosity" class="btn btn--pink btn-pressed roverButton" >Curiosity</button>
+            <button id="spirit" class="btn btn--pink roverButton" >Spirit</button>
+            <button id="opportunity" class="btn btn--pink roverButton" >Opportunity</button>
           </div>
           <h4>Customize your results</h4>
           <div class="input-block">
           <p class="input-block__title">Pictures to display</p>
           <div class="input-options">
-            <input type="range" min="1" max="12" step="1" value="5" class="slider" id="myRange">
-            <p id="demo"></p>
+            <input type="range" min="1" max="12" step="1" value="5" class="slider" id="rangeImagesToDisplay">
+            <p id="imagesToDisplayText"></p>
           </div>
           </div>
           <div class="input-block">
           <p class="input-block__title">Height</p>
           <div class="input-options">
-            <input type="range" min="100" max="600" step="50" value="300" class="slider" id="heightV">
-            <p id="heightText"></p>
+            <input type="range" min="100" max="600" step="50" value="300" class="slider" id="rangeHeightImage">
+            <p id="heightImageText"></p>
           </div>
           </div>
           <div class="input-block">
           <p class="input-block__title">Width</p>
           <div class="input-options">
-            <input type="range" min="100" max="600" step="50" value="300" class="slider" id="widthV">
-            <p id="widthText"></p>
+            <input type="range" min="100" max="600" step="50" value="300" class="slider" id="rangeWidthImage">
+            <p id="widthImageText"></p>
           </div>
           </div>
         </div>
