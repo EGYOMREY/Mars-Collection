@@ -1,0 +1,59 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the button component.
+// -----------------------------------------------------------------------------
+.btn-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 0;
+}
+
+.btn {
+    height: 3.8em;
+    border: none;
+    cursor: pointer;
+    transition: all ease-in-out 250ms;
+
+    &--pink {
+        background-color: $primary-color;
+        padding: 1em;
+        margin: 0.2em;
+        border: none;
+
+        &:hover{
+            background-color: darken($primary-color-dark, 3%);
+        }
+    }
+
+    &--random {
+        width: 30%;
+        background-color: $secondary-text-color;
+        @include respond-to("medium") {
+            width: 50%;
+            border-radius: 30px;
+        }
+        &:hover{
+            background-color: darken($secondary-text-color, 10%);
+        }
+    }
+
+    &--search {
+        width: 70%;
+
+        background-color: $primary-color;
+
+        @include respond-to("medium") {
+            width: 90%;
+            margin-bottom: 0.2em;
+        }
+
+        &:hover{
+            background-color: darken($primary-color-dark, 3%);
+        }
+    }
+}
+
+.btn-pressed {
+    background-color: darken($primary-color-dark, 3%);
+}

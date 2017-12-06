@@ -1,0 +1,86 @@
+@charset "UTF-8";
+
+// 1. Configuration and helpers
+
+@import "abstracts/variables";
+@import "abstracts/mixins";
+
+// 2. Vendors
+
+@import "vendor/normalize";
+
+// 3. Base
+
+@import "base/base";
+@import "base/typography";
+
+// 4. Layout-related sections
+@import
+  'layout/grid',
+  'layout/header',
+  'layout/menubar';
+// 5. Components
+
+@import "components/input-block";
+@import "components/button";
+
+
+.container {
+    display: flex;
+    flex-direction: column;
+
+    @include respond-to("medium") {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+}
+
+.menuBar {
+    background-color: $primary-color-light;
+    width: 100%;
+    text-align: center;
+
+    @include respond-to("medium") {
+        height: 550px;
+        width: 20%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+    }
+}
+
+.photos {
+    width: 100%;
+
+    @include respond-to("medium") {
+        width: 80%;
+    }
+}
+
+
+.photosContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    justify-content: space-around;
+}
+
+#noElementsAvailable {
+    text-align: center;
+}
+
+.slider {
+    width: 200px;
+
+    @include respond-to("medium") {
+        width: 100%;
+    }
+}
+
+#demo {
+    width: 1.2em;
+    padding: 1em;
+    margin: 0.2em;
+}
+
+//

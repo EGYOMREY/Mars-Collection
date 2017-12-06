@@ -1,0 +1,29 @@
+// -----------------------------------------------------------------------------
+// Mixins
+// -----------------------------------------------------------------------------
+
+/// Responsive mixin for breakpoints
+/// Use them this way:
+/// @include respond-to(small) { ... }
+/// @include respond-to(medium) { ... }
+/// @include respond-to(large) { ... }
+
+@mixin respond-to($name) {
+    // If the key exists in the map
+    @if map-has-key($breakpoints, $name) {
+        // Prints a media query based on the value
+        @media #{inspect(map-get($breakpoints, $name))} {
+            @content;
+        }
+    }
+    @else {
+        @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. " + "Please make sure it is defined in `$breakpoints` map.";
+    }
+}
+
+// Font mixin
+
+@mixin font($weight) {
+    font-family: $font-stack;
+    font-weight: $weight;
+}
