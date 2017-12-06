@@ -7,6 +7,9 @@
     <meta name="description" content="Display pictures of Mars using the NASA's Mars Rover Photos API">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400" rel="stylesheet">
+  <link rel="icon"
+      type="image/png"
+      href="img/favicon.png">
     <link rel="stylesheet" href="css/main.css">
     
   </head>
@@ -16,14 +19,19 @@
     <![endif]-->
     <header class="header">
       <div class="title">
-        <h1>Mars Collection</h1>
-        <p>thanks to Spirit, Curiosity and Opportunity!</p>
+        <h1>Welcome to Mars Collection</h1>
+        <p>See the Red Planet from another perspective</p>
       </div>
       <a href="">Learn more about Mars!</a>
     </header>
     <main class="container">
       <div class="menuBar">
+         <p>Choose between the 3 rovers to display pictures of their missions in Mars. Photos are organized by the sol (Martian rotation or day). Choose how many pictures to display and its dimentions.</p>
+
+
+
         <div class="items">
+
           <h4>Choose the Rover</h4>
           <div class="btn-container">
             <button id="curiosity" class="btn btn--pink btn-pressed" onclick="addRover(event)">Curiosity</button>
@@ -66,7 +74,7 @@
     
     
     
-    
+    <script src="js/jquery.js"></script>
     <script src="js/app.js"></script>
   </body>
 </html>

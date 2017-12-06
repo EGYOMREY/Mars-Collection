@@ -80,7 +80,7 @@ var ourData;
 
 searchButton.addEventListener('click', function() {
     
-    randomRover = Math.floor(Math.random() * 2) + 0;
+    randomRover = Math.floor(Math.random() * 3) + 0;
     console.log(chosenRover);
     solParameter = randomize(1000, 2000);
     url = 'https://api.nasa.gov/mars-photos/api/v1/rovers/' + chosenRover + '/photos?sol=' + solParameter + '&page=1&api_key=LQlfelUbO5f0rqk5UAS9REF5XhtwkG6oFX5TWOsc';
@@ -100,11 +100,10 @@ searchButton.addEventListener('click', function() {
 
 randomButton.addEventListener('click', function() {
 
-    randomRover = Math.floor(Math.random() * 2) + 0;
+    randomRover = Math.floor(Math.random() * 3) + 0;
     console.log(rovers[randomRover]);
     solParameter = randomize(1000, 2000);
-    url = 'https://api.nasa.gov/mars-photos/api/v1/rovers/' + rovers[randomRover] + '/photos?sol=' + solParameter + '&page=1&api_key=LQlfelUbO5f0rqk5UAS9REF5XhtwkG6oFX5TWOsc';
-    console.log(url);
+    url = 'https://api.nasa.gov/mars-photos/api/v1/rovers/' + chosenRover + '/photos?sol=' + solParameter + '&page=1&api_key=LQlfelUbO5f0rqk5UAS9REF5XhtwkG6oFX5TWOsc';
 
     ourRequest.open('GET', url);
     ourRequest.onload = function() {
@@ -128,11 +127,10 @@ function renderHTML(data) {
             img.src = ourData.photos[i].img_src;
             img.style.margin = "1em 0";
             photosContainer.appendChild(img);
-            console.log(photosContainer);
         }
 
     } else {
-        noElementsAvailable.innerHTML = "No pictures for the rover " + rovers[randomRover] + " on day " + solParameter + ", please hit the botton again!";
+        photosContainer.innerHTML = "No pictures on day " + solParameter + ", please hit the botton again!";
     }
 }
 

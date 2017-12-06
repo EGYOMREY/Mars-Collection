@@ -12,3 +12,7 @@ For regular search:
 For Random search:
 The only customizable option is the height*width
 
+
+
+### Special thanks
+To [@chrisccerami](https://twitter.com/chrisccerami) for maintaining this amazing API in this [repository](https://github.com/chrisccerami/mars-photo-api).
