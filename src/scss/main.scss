@@ -49,7 +49,7 @@
     }
 }
 
-.photos {
+.photosContainer {
     width: 100%;
 
     @include respond-to("medium") {
