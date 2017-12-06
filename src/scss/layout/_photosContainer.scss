@@ -1,0 +1,14 @@
+.photosContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    justify-content: space-around;
+    width: 100%;
+    text-align: center;
+    color: $primary-color-light;
+    font-size: 3em;
+
+    @include respond-to("medium") {
+        width: 75%;
+    }
+}

@@ -18,11 +18,15 @@
 @import
   'layout/grid',
   'layout/header',
-  'layout/menubar';
-// 5. Components
+  'layout/menubar',
+  'layout/photosContainer';
 
-@import "components/input-block";
-@import "components/button";
+// 5. Components
+@import 
+    'components/input-block',
+    'components/button',
+    'components/slider';
+
 
 // 6. Page-specific styles
 //@import
@@ -30,67 +34,8 @@
 //  'pages/moreInfo';
 
 
-.container {
-    display: flex;
-    flex-direction: column;
-
-    @include respond-to("medium") {
-        flex-direction: row;
-        flex-wrap: wrap;
-    }
-}
-
-.menuBar {
-    background-color: $primary-color-light;
-    width: 100%;
-    text-align: center;
-
-    @include respond-to("medium") {
-        height: 550px;
-        width: 25%;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-around;
-    }
-}
-
-.photosContainer {
-    width: 100%;
-    text-align: center;
-    color: $primary-color-light;
-    font-size: 3em;
-
-    @include respond-to("medium") {
-        width: 75%;
-    }
-}
 
 
-.photosContainer {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    justify-content: space-around;
-}
 
-#noElementsAvailable {
-    text-align: center;
-    color: $primary-color-light;
-    font-size: 3em;
-}
 
-.slider {
-    width: 200px;
 
-    @include respond-to("medium") {
-        width: 100%;
-    }
-}
-
-#demo {
-    width: 1.2em;
-    padding: 1em;
-    margin: 0.2em;
-}
-
-//

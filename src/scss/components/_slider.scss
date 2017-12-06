@@ -1,0 +1,15 @@
+.slider {
+    width: 200px;
+
+    @include respond-to("medium") {
+        width: 100%;
+    }
+}
+
+#imagesToDisplayText {
+    width: 1.2em;
+    padding: 1em;
+    margin: 0.2em;
+}
+
+//

@@ -33,14 +33,12 @@ $(document).ready(() => {
     // -- Default value -- //
     var chosenRover = 'curiosity';
 
-
     // --     DEFAULT VALUES FOR DEFAULT SEARCH     -- //
     var picturesToDisplay = 10;
     // -- Picture width -- //
     var widthValue = 300;
     // -- Picture height -- //
     var heightValue = 300;
-
 
     // -- Stores a random rover-- //
     var randomRover;
@@ -56,7 +54,7 @@ $(document).ready(() => {
 
 
     // --     DEFAULT VALUES displayed in the HTML     -- //
-    imagesToDisplayText.html(picturesToDisplay);
+    imagesToDisplayText.html(5);
     widthImageText.html(widthValue);
     heightImageText.html(heightValue);
 
@@ -75,7 +73,6 @@ $(document).ready(() => {
         widthValue = $(this).val();
     });
 
-
     rangeHeightImage.on('input', function() {
         heightImageText.html($(this).val());
         heightValue = $(this).val();
@@ -83,7 +80,6 @@ $(document).ready(() => {
 
 
     // --     FUNCTION TO SELECT ROVER (User choice)     -- //
-
     $('.roverButton').click(function() {
         chosenRover = $(this)[0].id;
 
@@ -112,11 +108,9 @@ $(document).ready(() => {
 
     // --     FUNCTION TO TRIGGER RANDOM SEARCH     -- //
     randomButton.on('click', function() {
-
         //  (1) we choose a random rover from the array
         randomRover = Math.floor(Math.random() * 3) + 1;
         chosenRover = rovers[randomRover];
-
         solParameter = randomize(1000, 2000);
         url = 'https://api.nasa.gov/mars-photos/api/v1/rovers/' + chosenRover + '/photos?sol=' + solParameter + '&page=1&api_key=LQlfelUbO5f0rqk5UAS9REF5XhtwkG6oFX5TWOsc';
 
@@ -146,7 +140,7 @@ $(document).ready(() => {
                     }
                     photosContainer.append(frag);
                 } else {
-                    photosContainer.html(`No pictures on day ${solParameter}, please hit the botton again!`);
+                    photosContainer.html(`No pictures for ${chosenRover} on day ${solParameter}, please hit the botton again!`);
                 }
             })
             .fail(function() {

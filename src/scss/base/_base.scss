@@ -52,9 +52,7 @@ li {
     margin: 0.2em;
 }
 
-.header{
-  background-color: $primary-color-dark;
-}
+
 
 a{
   color: $link-color;
@@ -67,4 +65,15 @@ a{
 img {
     max-width: 100%;
     display: block;
+}
+
+
+.container {
+    display: flex;
+    flex-direction: column;
+
+    @include respond-to("medium") {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
 }
