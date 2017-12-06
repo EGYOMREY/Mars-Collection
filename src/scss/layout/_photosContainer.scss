@@ -1,6 +1,5 @@
 .photosContainer {
-    display: flex;
-    flex-wrap: wrap;
+    @extend %grid;
     justify-content: center;
     justify-content: space-around;
     width: 100%;

@@ -14,5 +14,14 @@ The only customizable option is the height*width
 
 
 
+## What I used:
+
+- Gulp for automated tasks
+- Jquery
+- ES2015
+- Sass
+
 ### Special thanks
 To [@chrisccerami](https://twitter.com/chrisccerami) for maintaining this amazing API in this [repository](https://github.com/chrisccerami/mars-photo-api).
+
+To [Styling Cross-Browser Compatible Range Inputs with Sass / SCSS](https://github.com/darlanrod/input-range-scss) for the compatible range input.

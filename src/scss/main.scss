@@ -15,27 +15,20 @@
 @import "base/typography";
 
 // 4. Layout-related sections
-@import
-  'layout/grid',
-  'layout/header',
-  'layout/menubar',
-  'layout/photosContainer';
+
+@import "layout/grid";
+@import "layout/header";
+@import "layout/menubar";
+@import "layout/photosContainer";
+@import "layout/navigation";
 
 // 5. Components
-@import 
-    'components/input-block',
-    'components/button',
-    'components/slider';
 
+@import "components/input-block";
+@import "components/button";
+@import "components/slider";
 
 // 6. Page-specific styles
 //@import
 //  'pages/home',
 //  'pages/moreInfo';
-
-
-
-
-
-
-

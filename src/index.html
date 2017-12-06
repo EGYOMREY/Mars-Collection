@@ -7,74 +7,77 @@
     <meta name="description" content="Display pictures of Mars using the NASA's Mars Rover Photos API">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400" rel="stylesheet">
-  <link rel="icon"
+    <link rel="icon"
       type="image/png"
       href="img/favicon.png">
-    <link rel="stylesheet" href="css/main.css">
-    
-  </head>
-  <body>
-    <!--[if lte IE 9]>
-    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
-    <![endif]-->
-    <header class="header">
-      <div class="title">
-        <h1>Welcome to Mars Collection</h1>
-        <p>See the Red Planet from another perspective</p>
-      </div>
-      <a href="">Learn more about Mars!</a>
-    </header>
-    <main class="container">
-      <div class="menuBar">
-         <p>Choose between the 3 rovers to display pictures of their missions in Mars. Photos are organized by the sol (Martian rotation or day). Choose how many pictures to display and its dimentions.</p>
-
-
-
-        <div class="items">
-
-          <h4>Choose the Rover</h4>
+      <link rel="stylesheet" href="css/main.css">
+      
+    </head>
+    <body>
+      <!--[if lte IE 9]>
+      <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+      <![endif]-->
+      <header class="header" role="banner">
+        <div class="title">
+          <h1>Welcome to Mars Collection</h1>
+          <p>See the Red Planet from another perspective</p>
+        </div>
+        <nav class="navigation" role="navigation">
+          <ul>
+            <li><a href="#aboutMe">&#x2609; Learn more about Mars!</a></li>
+            <li><a href="#projects">&#x2609; About</a></li>
+            
+          </ul>
+        </nav>
+        
+      </header>
+      <main class="container">
+        <div class="menuBar">
+          <p class="menuBar__text">Choose between the 3 rovers to display pictures of their missions in Mars. Photos are organized by the sol (Martian rotation or day). Choose how many pictures to display and its dimentions.</p>
+          <div class="items">
+            <h4>Choose the Rover</h4>
+            <div class="btn-container">
+              <button id="curiosity" class="btn btn--pink btn-pressed roverButton" >Curiosity</button>
+              <button id="spirit" class="btn btn--pink roverButton" >Spirit</button>
+              <button id="opportunity" class="btn btn--pink roverButton" >Opportunity</button>
+            </div>
+            <h4>Customize your results</h4>
+            <div class="input-block">
+              <p class="input-block__title">Pictures to display</p>
+              <div class="input-options">
+                <input type="range" min="5" max="12" step="1" value="5" class="slider" id="rangeImagesToDisplay">
+                <p id="imagesToDisplayText"></p>
+              </div>
+            </div>
+            <div class="input-block">
+              <p class="input-block__title">Height</p>
+              <div class="input-options">
+                <input type="range" min="100" max="600" step="50" value="300" class="slider" id="rangeHeightImage">
+                <p id="heightImageText"></p>
+              </div>
+            </div>
+            <div class="input-block">
+              <p class="input-block__title">Width</p>
+              <div class="input-options">
+                <input type="range" min="100" max="600" step="50" value="300" class="slider" id="rangeWidthImage">
+                <p id="widthImageText"></p>
+              </div>
+            </div>
+          </div>
           <div class="btn-container">
-            <button id="curiosity" class="btn btn--pink btn-pressed roverButton" >Curiosity</button>
-            <button id="spirit" class="btn btn--pink roverButton" >Spirit</button>
-            <button id="opportunity" class="btn btn--pink roverButton" >Opportunity</button>
-          </div>
-          <h4>Customize your results</h4>
-          <div class="input-block">
-          <p class="input-block__title">Pictures to display</p>
-          <div class="input-options">
-            <input type="range" min="5" max="12" step="1" value="5" class="slider" id="rangeImagesToDisplay">
-            <p id="imagesToDisplayText"></p>
-          </div>
-          </div>
-          <div class="input-block">
-          <p class="input-block__title">Height</p>
-          <div class="input-options">
-            <input type="range" min="100" max="600" step="50" value="300" class="slider" id="rangeHeightImage">
-            <p id="heightImageText"></p>
-          </div>
-          </div>
-          <div class="input-block">
-          <p class="input-block__title">Width</p>
-          <div class="input-options">
-            <input type="range" min="100" max="600" step="50" value="300" class="slider" id="rangeWidthImage">
-            <p id="widthImageText"></p>
-          </div>
+            <button id="searchButton" class="btn btn--search">Search</button>
+            <button id="randomButton" class="btn btn--random">Random!</button>
           </div>
         </div>
-        <div class="btn-container">
-        <button id="searchButton" class="btn btn--search">Search</button>
-        <button id="randomButton" class="btn btn--random">Random!</button>
+        <div class="photosContainer">
+          <div id="noElementsAvailable"></div>
         </div>
-      </div>
-      <div class="photosContainer">
-        <div id="noElementsAvailable"></div>
-      </div>
-    </main>
-    
-    
-    
-    
-    <script src="js/jquery.js"></script>
-    <script src="js/app.js"></script>
-  </body>
-</html>
+      </main>
+      
+      
+      
+      
+      <script src="js/jquery.js"></script>
+      <script src="js/app.js"></script>
+    </body>
+  </html>

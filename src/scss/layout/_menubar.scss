@@ -3,16 +3,18 @@
     background-color: $primary-color-light;
     width: 100%;
     text-align: center;
+    color: $secondary-text-color;
 
     @include respond-to("medium") {
-        height: 550px;
+        
         width: 25%;
         display: flex;
         flex-direction: column;
-        justify-content: space-around;
+        
     }
 
-    p{
-        color: $secondary-text-color;
+    &__text{
+        padding: 0.5em;
+        
     }
 }
