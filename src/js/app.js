@@ -127,8 +127,8 @@ $(document).ready(() => {
             })
             .done(data => {
                 photosContainer.html('');
-                console.log(`Rover ${chosenRover}. Martial Day ${solParameter} chosen`);
-                if (data.photos.length) {
+                console.log(data.photos.length);
+                if (data.photos.length > 5) {
 
                     for (let i = 0; i < picturesToDisplay; i += 2) {
                         const img = document.createElement("img");
