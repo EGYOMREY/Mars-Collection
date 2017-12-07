@@ -34,13 +34,14 @@
 
 .rovers {
     @extend %grid;
-
+    flex-direction: row;
     justify-content: space-around;
-    margin: auto;
+   
+ 
 
     img {
         border: 2px solid $primary-color;
-        width: 300px;
+        width: 250px;
     }
 }
 
