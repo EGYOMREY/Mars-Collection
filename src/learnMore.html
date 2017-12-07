@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Mars Collection</title>
+    <meta name="description" content="Display pictures of Mars using the NASA's Mars Rover Photos API">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400" rel="stylesheet">
+    <link rel="icon"
+      type="image/png"
+      href="img/favicon.png">
+      <link rel="stylesheet" href="css/main.css">
+      
+    </head>
+    <body>
+      <!--[if lte IE 9]>
+      <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+      <![endif]-->
+      <header class="header">
+        <div class="title">
+          <h1>Welcome to Mars Collection</h1>
+          <p>See the Red Planet from another perspective</p>
+        </div>
+        <nav class="navigation">
+          <ul>
+            <li><a href="#mars-info">&#x2609; Learn more about Mars!</a></li>
+            <li><a href="#footer">&#x2609; About</a></li> 
+          </ul>
+        </nav>
+      </header>
+      <main class="mars-main" id="mars-info">
+        <button class="btn goBackButton"><a href="https://egyomrey.github.io/Mars-Collection/build/index.html">Back</a></button>
+        <section class="mars-section">
+          <article class="mars-article">
+            <h1>How does timekeeping work on Mars?</h1>
+            <p>Mars has an axial tilt and a rotation period similar to those of Earth. Thus it experiences seasons of spring, summer, autumn and winter much like Earth, and its day is about the same length. Its year is almost twice as long as Earth's, and its orbital eccentricity is considerably larger, which means among other things that the lengths of various Martian seasons differ considerably, and sundial time can diverge from clock time more than on Earth.</p>
+            <h2>Time of the day</h2>
+            <p>The average length of a Martian sidereal day is <strong>24h 37m 22.663s</strong> (88,642.66300 seconds based on SI units), and the length of its solar day (often called a sol) is 24h 39m 35.244147s (88,775.244147 seconds). The corresponding values for Earth are 23h 56m 4.0916s and 24h 00m 00.002s, respectively. This yields a conversion factor of 1.02749125170 days/sol. Thus Mars' solar day is only about 2.7% longer than Earth's.</p>
+            <h2>Sols</h2>
+            <p>The term sol is used by planetary astronomers to refer to the duration of a solar day on Mars. A mean Martian solar day, or "sol", is 24 hours, 39 minutes, and 35.244 seconds.</p>
+            <p>When a spacecraft lander begins operations on Mars, the passing Martian days (sols) are tracked using a simple numerical count. The two Viking missions, Mars Phoenix and the Mars Science Laboratory rover Curiosity count the sol on which each lander touched down as "Sol 0"; Mars Pathfinder and the two Mars Exploration Rovers instead defined touchdown as "Sol 1".</p>
+            <h2>Martian year</h2>
+            <p>The length of time for Mars to complete one orbit around the Sun is its sidereal year, and is about <strong>686.98</strong> Earth solar days, or 668.5991 sols. Because of the eccentricity of Mars' orbit, the seasons are not of equal length.</p>
+            <footer class="mars-article__footer">
+              <h3>Resources: learn more</h3>
+              <ul>
+                <li><a href="https://mars.nasa.gov/allaboutmars/">Mars Exploration website</a></li>
+                <li><a href="https://en.wikipedia.org/wiki/Timekeeping_on_Mars">Timekeeping in Mars</a></li>
+                <li><a href="https://mars.nasa.gov/">Mars exploration program</a></li>
+              </ul>
+            </footer>
+          </article>
+          <article class="mars-article">
+            <h1>Mars Exploration Rover</h1>
+            <p>NASA's Mars Exploration Rover (MER) mission is an ongoing robotic space mission involving two Mars rovers, Spirit and Opportunity, exploring the planet Mars. It began in 2003 with the launch of the two rovers: MER-A Spirit and MER-B Opportunity—to explore the Martian surface and geology; both landed on Mars at separate locations in January 2004. Both rovers far outlived their planned missions of 90 Martian solar days: MER-A Spirit was active until 2010, while MER-B Opportunity is still active in 2017, and holds the record for the longest distance driven by any off-Earth wheeled vehicle.</p>
+            <h2>Meet the Rovers!</h2>
+            <div class="rovers">
+              <figure>
+                <img src="img/rover_curiosity.jpg" alt="Rover curiosity">
+                <figcaption>Curiosity</figcaption>
+              </figure>
+              <figure>
+                <img src="img/rover_opportunity.jpg" alt="Rover Opportunity">
+                <figcaption>Opportunity</figcaption>
+              </figure>
+              <figure>
+                <img src="img/rover_spirit.jpg" alt="Rover Spirit">
+                <figcaption>Spirit</figcaption>
+              </figure>
+            </div>
+          </article>
+        </section>
+      </main>
+      <footer id="footer" class="mars-main footer">
+        <h2>About</h2>
+        <p>The pictures were obtained from the API <a href="https://api.nasa.gov/api.html#MarsPhotos">Mars Rover Photos</a>. I let the users modify the request and receive new images, but I don't control the weight/quality of the pictures.</p>
+      </footer>
+    </body>
+  </html>

@@ -1,0 +1,64 @@
+.mars-main {
+    width: 90%;
+    margin: auto;
+    color: lighten($secondary-text-color, 10%);
+
+    a {
+        color: $primary-color-dark;
+    }
+
+    h1, h2, h3, h4 {
+        padding: 1em;
+    }
+
+    p {
+        padding: 1em 2em;
+    }
+}
+
+.mars-article {
+    width: 100%;
+
+    @include respond-to("medium") {
+        max-width: 80%;
+    }
+
+
+    &__footer {
+        ul {
+            flex-direction: column;
+            margin-left: 1em;
+        }
+    }
+}
+
+.rovers {
+    @extend %grid;
+
+    justify-content: space-around;
+    margin: auto;
+
+    img {
+        border: 2px solid $primary-color;
+        width: 300px;
+    }
+}
+
+.footer {
+    width: 100%;
+
+    @include respond-to("medium") {
+        max-width: 80%;
+    }
+}
+
+.goBackButton{
+    position: fixed;
+    left: 0;
+    bottom: 50vh;
+    background-color: $primary-color;
+
+    a{
+       color: $primary-color-text;
+    }
+}
