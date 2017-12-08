@@ -31,13 +31,13 @@
       </header>
       <main class="container">
         <div class="menuBar">
-          <p class="menuBar__text">Choose between the 3 rovers to display pictures of their missions in Mars. Photos are organized by the sol (Martian rotation or day). Choose how many pictures to display and its dimentions.</p>
+          <p class="menuBar__text">You can select between the 3 rovers to display pictures of their missions in Mars, also how many pictures to display and its dimentions.</p>
           <div class="items">
             <h4>Choose the Rover</h4>
             <div class="btn-container">
-              <button id="curiosity" class="btn btn--pink btn-pressed roverButton" >Curiosity</button>
-              <button id="spirit" class="btn btn--pink roverButton" >Spirit</button>
-              <button id="opportunity" class="btn btn--pink roverButton" >Opportunity</button>
+              <button id="curiosity" class="btn btn--gray btn-pressed roverButton" >Curiosity</button>
+              <button id="spirit" class="btn btn--gray roverButton" >Spirit</button>
+              <button id="opportunity" class="btn btn--gray roverButton" >Opportunity</button>
             </div>
             <h4>Customize your results</h4>
             <div class="input-block">
@@ -67,8 +67,10 @@
             <button id="randomButton" class="btn btn--random">Random!</button>
           </div>
         </div>
-        <div class="photosContainer">
-          <div id="noElementsAvailable"></div>
+        <div class="photos-container">
+          <div class="photos-container__details">Hit the Search or Random button to begin</div>
+        <div class="photos-container__photos">
+        </div>
         </div>
       </main>
       

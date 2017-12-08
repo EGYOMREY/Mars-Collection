@@ -1,0 +1,28 @@
+.photos-container {
+    @extend %grid;
+
+    flex-direction: column;
+    width: 100%;
+
+    @include respond-to("medium") {
+        width: 75%;
+    }
+
+
+    &__details {
+        text-align: center;
+      
+        width: 100%;
+        padding: 1em;
+        color: $primary-text-color;
+        background-color: $divider-color;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24)
+    }
+
+    &__photos {
+        @extend %grid;
+        justify-content: center;
+        justify-content: space-around;
+        width: 100%;
+    }
+}

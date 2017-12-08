@@ -18,11 +18,13 @@ $secondary: #FFF;
 
 $primary-color-dark:   #E64A19;
 $primary-color:        #FF5722;
-$primary-color-light:  #F19953;
+$primary-color-light:  #FFCCBC;
 $primary-color-text:   #FFFFFF;
+$accent-color:         #795548;
 $primary-text-color:   #212121;
-$secondary-text-color: #56351e;
+$secondary-text-color: #757575;
 $divider-color:        #BDBDBD;
+
 
 
 // BODY
@@ -30,7 +32,7 @@ $divider-color:        #BDBDBD;
 // Settings for the `<body>` element.
 
 $body-bg: $primary-color-text;
-$body-color: $secondary-text-color;
+$body-color: $primary-text-color;
 
 // LINKS
 //

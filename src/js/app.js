@@ -7,7 +7,8 @@ $(document).ready(() => {
     const rovers = ['dummy', 'opportunity', 'curiosity', 'spirit'];
 
     // -- Container for displaying the pictures -- //
-    const photosContainer = $('.photosContainer');
+    const photosContainer = $('.photos-container__photos');
+    const photosDetails = $('.photos-container__details');
 
     // -- Button to search for the pictures -- //
     const randomButton = $('#randomButton');
@@ -93,7 +94,7 @@ $(document).ready(() => {
 
 
     // --     FUNCTION TO TRIGGER DEFAULT SEARCH     -- //
-    searchButton.on('click', function() {
+    searchButton.on('click', () => {
         solParameter = randomize(1000, 2000);
         url = 'https://api.nasa.gov/mars-photos/api/v1/rovers/' + chosenRover + '/photos?sol=' + solParameter + '&page=1&api_key=LQlfelUbO5f0rqk5UAS9REF5XhtwkG6oFX5TWOsc';
 
@@ -103,7 +104,7 @@ $(document).ready(() => {
 
 
     // --     FUNCTION TO TRIGGER RANDOM SEARCH     -- //
-    randomButton.on('click', function() {
+    randomButton.on('click', () => {
         //  (1) we choose a random rover from the array
         randomRover = Math.floor(Math.random() * 3) + 1;
         chosenRandom = rovers[randomRover];
@@ -121,8 +122,9 @@ $(document).ready(() => {
             })
             .done(data => {
                 photosContainer.html('');
+                photosDetails.html('');
                 console.log(data.photos.length);
-                if (data.photos.length > 7) {
+                if (data.photos.length > 8) {
 
                     for (let i = 0; i < picturesToDisplay; i += 2) {
                         const img = document.createElement("img");
@@ -133,15 +135,18 @@ $(document).ready(() => {
                         frag.appendChild(img);
 
                     }
+
                     photosContainer.append(frag);
+                    photosDetails.html(`Displaying pictures from ${chosenRover} on Martian solar day ${solParameter}`);
+
                 } else {
-                    photosContainer.html(`No pictures for ${chosenRover} on day ${solParameter}, please hit the botton again!`);
+                    photosDetails.html(`No pictures from ${chosenRover} on day ${solParameter}, please hit the button again!`);
                 }
             })
-            .fail(function() {
+            .fail(() => {
                 console.log("error");
             })
-            .always(function() {
+            .always(() => {
                 console.log(`Rover ${chosenRover}. Martial Day ${solParameter} chosen`);
             });
     }
