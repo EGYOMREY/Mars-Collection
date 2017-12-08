@@ -2,50 +2,52 @@ $(document).ready(() => {
     'use strict';
 
     // --               VARIABLES USED              -- //
-    var frag = document.createDocumentFragment();
+    const frag = document.createDocumentFragment();
     // -- Set a dummy element for position 0 -- //
-    var rovers = ['dummy', 'opportunity', 'curiosity', 'spirit'];
+    const rovers = ['dummy', 'opportunity', 'curiosity', 'spirit'];
 
     // -- Container for displaying the pictures -- //
-    var photosContainer = $('.photosContainer');
+    const photosContainer = $('.photosContainer');
 
     // -- Button to search for the pictures -- //
-    var randomButton = $('#randomButton');
-    var searchButton = $('#searchButton');
+    const randomButton = $('#randomButton');
+    const searchButton = $('#searchButton');
 
     // --       RANGE INPUT (User choice)        -- //
     // -- Range input for # of Pictures to display -- //
-    var rangeImagesToDisplay = $('#rangeImagesToDisplay');
+    const rangeImagesToDisplay = $('#rangeImagesToDisplay');
     // -- Range input to Select HEIGHT of the pictures -- //
-    var rangeHeightImage = $('#rangeHeightImage');
+    const rangeHeightImage = $('#rangeHeightImage');
     // -- Range input to Select WIDTH of the pictures -- //
-    var rangeWidthImage = $('#rangeWidthImage');
+    const rangeWidthImage = $('#rangeWidthImage');
 
     // --     RANGE VALUE DISPLAY for HTML     -- //
-    var imagesToDisplayText = $('#imagesToDisplayText');
-    var widthImageText = $('#widthImageText');
-    var heightImageText = $('#heightImageText');
+    const imagesToDisplayText = $('#imagesToDisplayText');
+    const widthImageText = $('#widthImageText');
+    const heightImageText = $('#heightImageText');
 
     // --     Rover Buttons     -- //
-    var spiritButton = $('#spirit');
-    var curiosityButton = $('#curiosity');
-    var opportunityButton = $('#opportunity');
+    const spiritButton = $('#spirit');
+    const curiosityButton = $('#curiosity');
+    const opportunityButton = $('#opportunity');
     // -- Default value -- //
-    var chosenRover = 'curiosity';
+    let chosenRover = 'curiosity';
 
     // --     DEFAULT VALUES FOR DEFAULT SEARCH     -- //
-    var picturesToDisplay = 10;
+    let picturesToDisplay = 10;
     // -- Picture width -- //
-    var widthValue = 300;
+    let widthValue = 300;
     // -- Picture height -- //
-    var heightValue = 300;
+    let heightValue = 300;
 
     // -- Stores a random rover-- //
-    var randomRover;
+    let randomRover;
+    // -- Stores the chosen Random rover-- //
+    let chosenRandom;
     // -- Stores the Martian day parameter (Sol) for the url -- //
-    var solParameter;
+    let solParameter;
     // -- Stores the URL value -- //
-    var url;
+    let url;
 
     // -- Generic randomize function-- //
     function randomize(min, max) {
@@ -82,15 +84,9 @@ $(document).ready(() => {
     // --     FUNCTION TO SELECT ROVER (User choice)     -- //
     $('.roverButton').click(function() {
         chosenRover = $(this)[0].id;
-
-        if (spiritButton.hasClass('btn-pressed')) {
-            spiritButton.removeClass('btn-pressed');
-        } else if (curiosityButton.hasClass('btn-pressed')) {
-            curiosityButton.removeClass('btn-pressed');
-        } else if (opportunityButton.hasClass('btn-pressed')) {
-            opportunityButton.removeClass('btn-pressed');
-        }
-
+        spiritButton.removeClass('btn-pressed');
+        curiosityButton.removeClass('btn-pressed');
+        opportunityButton.removeClass('btn-pressed');
         $(this).toggleClass('btn-pressed');
 
     });
@@ -110,14 +106,12 @@ $(document).ready(() => {
     randomButton.on('click', function() {
         //  (1) we choose a random rover from the array
         randomRover = Math.floor(Math.random() * 3) + 1;
-        chosenRover = rovers[randomRover];
+        chosenRandom = rovers[randomRover];
         solParameter = randomize(1000, 2000);
-        url = 'https://api.nasa.gov/mars-photos/api/v1/rovers/' + chosenRover + '/photos?sol=' + solParameter + '&page=1&api_key=LQlfelUbO5f0rqk5UAS9REF5XhtwkG6oFX5TWOsc';
+        url = 'https://api.nasa.gov/mars-photos/api/v1/rovers/' + chosenRandom + '/photos?sol=' + solParameter + '&page=1&api_key=LQlfelUbO5f0rqk5UAS9REF5XhtwkG6oFX5TWOsc';
 
-        ajaxCall(url, widthValue, heightValue, picturesToDisplay, chosenRover, solParameter);
+        ajaxCall(url, widthValue, heightValue, picturesToDisplay, chosenRandom, solParameter);
     });
-
-
 
 
     // --     CALL TO THE API TO RETRIEVE JSON DATA     -- //
@@ -128,7 +122,7 @@ $(document).ready(() => {
             .done(data => {
                 photosContainer.html('');
                 console.log(data.photos.length);
-                if (data.photos.length > 5) {
+                if (data.photos.length > 7) {
 
                     for (let i = 0; i < picturesToDisplay; i += 2) {
                         const img = document.createElement("img");
