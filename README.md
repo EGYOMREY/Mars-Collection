@@ -39,3 +39,7 @@ Gulp will refresh the browser with any saved change done in `src`, and also will
 To [@chrisccerami](https://twitter.com/chrisccerami) for maintaining this amazing API in this [repository](https://github.com/chrisccerami/mars-photo-api).
 
 To [Styling Cross-Browser Compatible Range Inputs with Sass / SCSS](https://github.com/darlanrod/input-range-scss) for the compatible range input.
+
+
+### Motivation
+I was looking for an interesting API to work on and I learned that the [NASA's API Repository](https://api.nasa.gov/api.html) offered several amazing APIs with cool information to display. Since Mars 2020 rover mission is not that far away and you don't see pictures from Mars every day, I thought it would be interesting to display them in an interactive way. I think it can also help people remember that there have been more than 1 rover in Mars and there's plenty of information out there of their missions.
