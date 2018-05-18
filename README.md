@@ -1,7 +1,12 @@
 # Mars-Collection Project
-Using the NASA's [Mars Rover Photos API](https://api.nasa.gov/api.html#MarsPhotos), display photos taken by NASA's Curiosity, Opportunity, and Spirit rovers.
+Using the NASA's [Mars Rover Photos API](https://api.nasa.gov/api.html#MarsPhotos), display photos taken by NASA's Curiosity, Opportunity, and Spirit rovers. [Try it out](https://egyomrey.github.io/Mars-Collection/build/index.html) :arrow_upper_right:
 
-[DIRECT LINK](https://egyomrey.github.io/Mars-Collection/build/index.html)
+## Desktop
+![image](https://i.imgur.com/MtQB7Bq.png)
+
+## Mobile
+![image](https://i.imgur.com/nF8GFEe.png)
+
 
 ## Functionality:
 For regular search:
@@ -32,7 +37,7 @@ Gulp will refresh the browser with any saved change done in `src`, and also will
 
 - Gulp for automated tasks
 - Jquery
-- ES2015
+- ES6
 - SCSS
 
 ### Special thanks
