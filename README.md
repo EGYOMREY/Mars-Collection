@@ -36,7 +36,6 @@ Gulp will refresh the browser with any saved change done in `src`, and also will
 ## What I used:
 
 - Gulp for automated tasks
-- Jquery
 - ES6
 - SCSS
 
